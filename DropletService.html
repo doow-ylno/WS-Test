@@ -46,7 +46,19 @@
 
 <!-- 第二部分 -->
 <section class="DS_second_section">
-    <img src="Resource/banner-1.png" alt="用于显示图片加载失败是的文字">
+    <img id="DS_top_img" src="Resource/banner-1.png" alt="用于显示图片加载失败是的文字">
+    <script>
+        var num = 1;
+        var bannerImg = document.getElementById("DS_top_img");
+        function changeImg() {
+            num++;
+            if ( num > 3 ) {
+                num = 1;
+            }
+            bannerImg.src = "Resource/banner-" + num + ".png";
+        }
+        setInterval(changeImg, 3000);
+    </script>
 </section>
 
 

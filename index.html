@@ -83,35 +83,24 @@
 </form>
 
 <script>
-    <!-- 获取公司信息-->
-    resources('aboutus', '', 'get', function (res) {
-        var str = res.data;
-        console.log(str);
-    });
-    // function sum(a, b) {
-    //     var c = a+b;
-    //     alert("函数被调用了！");
-    //     return c;
-    // }
-    //
-    // var sum1 = function (a, b) {
-    //     var c = a+b;
-    //     alert("变量函数被调用了");
-    //     return c;
-    // }
+    <!--  登录跳转 -->
     var btn = document.getElementById("i_btn");
     btn.onclick = function () {
+        // 获取 账户和密码
         var userName = encodeURIComponent(document.getElementById("i_account").value);
         var password = encodeURIComponent(document.getElementById("i_password").value);
         // 拼接参数
         var parameter = "username=" + userName + "&pwd=" + password;
-        
+        // 通过接口函数验证登录账户
         resources('login', parameter, 'post', function (res) {
+            // 对返回的数据进行json格式解析
             var res = JSON.parse(res);
             var str = res.data;
             if (str == "登录成功"){
+                // 登录成功 跳转到首页
                 location.href = "DropletService.html";
             } else {
+                // 否则 显示接口返回错误信息
                 alert(str);
             }
         });

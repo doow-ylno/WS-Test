@@ -54,6 +54,7 @@
     </style>
 </head>
 <body>
+
 <!-- 第一部分 -->
 <header>
     <span>我的小滴</span>
@@ -65,8 +66,14 @@
     <div class="MD_inner_div">
         <img src="Resource/head.png">
         <span>华杉科技</span>
-        <button>退出登录</button>
+        <button id="MD_btn">退出登录</button>
     </div>
+    <script>
+        var btn = document.getElementById("MD_btn");
+        btn.onclick = function () {
+            location.href = "index.html";
+        }
+    </script>
 </div>
 
 <!-- 第三部分 -->
